@@ -2,10 +2,16 @@ tambah custom feeds :
 
 untuk amlogic:
 src/gz custom_generic https://raw.githubusercontent.com/sedap/my-opkg-repo/main/generic
-src/gz custom_arch https://raw.githubusercontent.com/sedap/my-opkg-repo/main/aarch64_cortex-a72
+src/gz custom_arch https://raw.githubusercontent.com/sedap/my-opkg-repo/main/aarch64_cortex-a53
 
 untuk glinet ar300m
 src/gz custom_generic https://raw.githubusercontent.com/sedap/my-opkg-repo/main/generic
 src/gz custom_arch https://raw.githubusercontent.com/sedap/my-opkg-repo/main/mips_24kc
 
 
+
+atau pake ini :
+
+sed -i 's/option check_signature/# option check_signature/g' /etc/opkg.conf
+echo "src/gz custom_generic https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/generic" >> /etc/opkg/customfeeds.conf
+echo "src/gz custom_arch https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/$(cat /etc/os-release | grep OPENWRT_ARCH | awk -F '"' '{print $2}')" >> /etc/opkg/customfeeds.conf
