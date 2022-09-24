@@ -1,0 +1,11 @@
+tambah custom feeds :
+
+untuk amlogic:
+src/gz custom_generic https://raw.githubusercontent.com/sedap/my-opkg-repo/main/generic
+src/gz custom_arch https://raw.githubusercontent.com/sedap/my-opkg-repo/main/aarch64_cortex-a72
+
+untuk glinet ar300m
+src/gz custom_generic https://raw.githubusercontent.com/sedap/my-opkg-repo/main/generic
+src/gz custom_arch https://raw.githubusercontent.com/sedap/my-opkg-repo/main/mips_24kc
+
+
