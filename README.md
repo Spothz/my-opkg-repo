@@ -41,9 +41,8 @@ x86_64
       echo "src/gz custom_arch https://raw.githubusercontent.com/Spothz/my-opkg-repo/main/$(grep "OPENWRT_ARCH" /etc/os-release | awk -F '"' '{print $2}')" >> /etc/opkg/customfeeds.conf
       
 
-      > Для OpenWrt 19.07 нужно установить вручную пакеты:
-      
-      opkg install kcptun-client xray-core libcap-bin
+   ### Для OpenWrt 19.07 нужно установить вручную пакеты:
+        opkg install kcptun-client xray-core libcap-bin
  
 ### Установка passwall через Terminal
   
