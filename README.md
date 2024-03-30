@@ -45,7 +45,7 @@ x86_64
       opkg install luci-app-passwall
 
  ### Для OpenWrt 19.07 нужно установить вручную пакеты:
-opkg install kcptun-client xray-core libcap-bin
+      opkg install kcptun-client xray-core libcap-bin
       
 ### Все необходимые для работы пакеты:
 
