@@ -50,26 +50,26 @@ x86_64
 ### Все необходимые для работы пакеты:
 
       ipset 
-ipt2socks 
-iptables iptables-legacy 
-iptables-mod-iprange
-iptables-mod-socket iptables-mod-tproxy 
-kmod-ipt-nat 
-coreutils 
-coreutils-base64 
-coreutils-nohup 
-curl
-dns2socks 
-ip-full 
-libuci-lua 
-luci-compat
-luci-lib-jsonc 
-microsocks 
-resolveip 
-tcping 
-unzip
-v2ray-extra
-v2ray-geoip
-v2ray-geosite
-v2ray-ctl 
-xray-geodata
+      ipt2socks 
+      iptables iptables-legacy 
+      iptables-mod-iprange
+      iptables-mod-socket iptables-mod-tproxy 
+      kmod-ipt-nat 
+      coreutils 
+      coreutils-base64 
+      coreutils-nohup 
+      curl
+      dns2socks 
+      ip-full 
+      libuci-lua 
+      luci-compat
+      luci-lib-jsonc 
+      microsocks 
+      resolveip 
+      tcping 
+      unzip
+      v2ray-extra
+      v2ray-geoip
+      v2ray-geosite
+      v2ray-ctl 
+      xray-geodata
