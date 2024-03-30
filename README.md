@@ -49,7 +49,7 @@ x86_64
       
 ### Все необходимые для работы пакеты:
 
-ipset 
+      ipset 
 ipt2socks 
 iptables iptables-legacy 
 iptables-mod-iprange
