@@ -3,28 +3,28 @@
 
 
 ## Список поддержываемых архитектур:
-
-aarch64_cortex-a53
-aarch64_cortex-a72
-aarch64_generic
-arm_arm1176jzf-s_vfp
-arm_cortex-a7_neon-vfpv4
-i386_pentium4
-mips_24kc
-mipsel_24kc
-x86_64
+   aarch64_cortex-a53
+   aarch64_cortex-a72
+   aarch64_generic
+   arm_arm1176jzf-s_vfp
+   arm_cortex-a7_neon-vfpv4
+   i386_pentium4
+   mips_24kc
+   mipsel_24kc
+   x86_64
 
 
 ## Как добавить данный репозиторый в OpenWrt
-Есть 2 способа:
-Через веб интерфейс LuCI или через Terminal
+   Есть 2 способа:
+   Через веб интерфейс LuCI 
+   Через Terminal
 
 ### Через LuCI
      Добавть  # перед option check_signature чтобы получилось так:
   
       # option check_signature
 
-     В поле custom feeds добавить:
+     В поле custom-feeds добавить:
 
       src/gz custom_generic https://raw.githubusercontent.com/Spothz/my-opkg-repo/main/generic
       src/gz custom_arch https://raw.githubusercontent.com/Spothz/my-opkg-repo/main/mipsel_24kc
