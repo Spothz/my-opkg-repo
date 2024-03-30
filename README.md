@@ -1,22 +1,9 @@
-# Personal OpenWrt OPKG Server
-Install dan upgrade paket aplikasi komunitas modifikasi OpenWrt (seperti: OpenClash, Passwall, ShadowSocksR+ Plus, Wegare STL, Tiny File Manager, Xderm Mini, v2rayA, Modeminfo, dll) dengan mudah.
+# Личный OPKG репозиторий для версий OpenWrt 19-21
+Позволяет устанавливать такие пакеты: OpenClash, Passwall, ShadowSocksR+ Plus, Wegare STL, Tiny File Manager, Xderm Mini, v2rayA, Modeminfo, dll) dengan mudah.
 
-Kelebihan instalasi dan update menggunakan server kustom seperti ini adalah:
-1. Tidak perlu repot menggunakan wget dan curl yang sangat panjang dan rumit.
-2. Instalasi paket ipk bisa menggunakan `opkg install nama-paket`.
-3. Instalasi paket ipk juga bisa menggunakan fitur **System - Software** pada LuCI OpenWrt.
 
-Daftar Isi:
-- [Daftar Arsitektur](#daftar-arsitektur)
-- [Cara Menambah Repository ke Software Update OpenWrt](#cara-menambah-repository-ke-software-update-openwrt)
-- [Cara Install dan Update Paket](#cara-install-dan-update-paket)
-- [Cara Memeriksa Paket Sudah Terinstal Atau Belum](#cara-memeriksa-paket-sudah-terinstal-atau-belum)
-- [Kredit](#kredit)
+## Список поддержываемых архитектур:
 
-## Daftar Arsitektur
-Repository ini mendukung arsitektur dibawah ini:
-
-```
 aarch64_cortex-a53
 aarch64_cortex-a72
 aarch64_generic
@@ -26,61 +13,45 @@ i386_pentium4
 mips_24kc
 mipsel_24kc
 x86_64
-```
 
-## Cara Menambah Repository ke Software Update OpenWrt
-Cara menambahkan repository ini ke firmware, dapat menggunakan 2 cara yaitu:
-- [Menggunakan LuCI](#menggunakan-luci)
-- [Menggunakan Terminal](#menggunakan-terminal) seperti JuiceSSH/Termius/Termux
+
+## Как добавить данный репозиторый в OpenWrt
+Есть 2 способа:
+- [Использовать вебинтерфейс LuCI](#menggunakan-luci)
+- [Истпользовать Terminal](#menggunakan-terminal)
 
 
 ### Menggunakan LuCI
 
-  1. Masuk IP LuCI (contoh: 192.168.1.1), Login, Buka **System -> Software -> Configuration**
   
-  2. Tambahkan tanda # (pagar) di depan baris ```option check_signature```, contoh dibawah ini
+     Добавть  # перед option check_signature чтобы получилось так:
   
-      ubah tulisan dibawah ini
-      
-      ```
-      option check_signature
-      ```
-      
-      menjadi seperti ini
       
       ```
       # option check_signature
       ```
 
-  3. Pada bagian custom feeds tambahkan list dibawah ini
+     В поле custom feeds добавить:
 
       ```
-      src/gz custom_generic https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/generic
-      src/gz custom_arch https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/arm_cortex-a7_neon-vfpv4
+      src/gz custom_generic https://raw.githubusercontent.com/Spothz/my-opkg-repo/main/generic
+      src/gz custom_arch https://raw.githubusercontent.com/Spothz/my-opkg-repo/main/mipsel_24kc
       ```
 
-      ubah **arm_cortex-a7_neon-vfpv4** dan sesuaikan arsitektur CPU router OpenWrt kalian
+      Вместо **mipsel_24kc** вписать архитектуру своего роутера.
 
       ![](https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/preview/preview1.gif)
  
-### Menggunakan Terminal
-  1. Gunakan salah satu rekomendasi aplikasi Terminal dibawah ini
-      - Terminal TTYD (Paket OpenWrt)
-      - JuiceSSH
-      - Termius
-      - Termux
-      
-      > Catatan: Pengguna dapat menggunakan aplikasi terminal selain yang disebutkan diatas
-  
-  2. Copy paste dibawah di terminal, otomatis akan menyesuaikan tipe arsitektur cpu router
+### Через Terminal
+  Скопитуйте и вставте в терминал строки, определение архитектуры произойдёт автоматически:
       
       ```
       sed -i 's/option check_signature/# option check_signature/g' /etc/opkg.conf
-      echo "src/gz custom_generic https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/generic" >> /etc/opkg/customfeeds.conf
-      echo "src/gz custom_arch https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/$(grep "OPENWRT_ARCH" /etc/os-release | awk -F '"' '{print $2}')" >> /etc/opkg/customfeeds.conf
+      echo "src/gz custom_generic https://raw.githubusercontent.com/Spothz/my-opkg-repo/main/generic" >> /etc/opkg/customfeeds.conf
+      echo "src/gz custom_arch https://raw.githubusercontent.com/Spothz/my-opkg-repo/main/$(grep "OPENWRT_ARCH" /etc/os-release | awk -F '"' '{print $2}')" >> /etc/opkg/customfeeds.conf
       ```
 
-      > Catatan: untuk firmware OpenWrt 19.07 masih ada yg harus install manual seperti `kcptun-client`, `xray-core` dan `libcap-bin`.
+      > Для OpenWrt 19.07 нужно установить вручную пакеты: `kcptun-client`, `xray-core` dan `libcap-bin`.
     
       ![](https://raw.githubusercontent.com/lrdrdn/my-opkg-repo/main/preview/preview2.gif)
     
