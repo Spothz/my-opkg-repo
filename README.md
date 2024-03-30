@@ -1,5 +1,5 @@
-# Личный OPKG репозиторий для версий OpenWrt 19-21
-Позволяет устанавливать такие пакеты: OpenClash, Passwall, ShadowSocksR+ Plus, Wegare STL, Tiny File Manager, Xderm Mini, v2rayA, Modeminfo, dll) dengan mudah.
+# ЛOPKG репозиторий для версий OpenWrt 19-21
+Позволяет устанавливать такие пакеты: OpenClash, Passwall, ShadowSocksR+ Plus, Wegare STL, Tiny File Manager, Xderm Mini, v2rayA, Modeminfo.
 
 
 ## Список поддержываемых архитектур:
@@ -38,14 +38,14 @@ x86_64
       echo "src/gz custom_generic https://raw.githubusercontent.com/Spothz/my-opkg-repo/main/generic" >> /etc/opkg/customfeeds.conf
       echo "src/gz custom_arch https://raw.githubusercontent.com/Spothz/my-opkg-repo/main/$(grep "OPENWRT_ARCH" /etc/os-release | awk -F '"' '{print $2}')" >> /etc/opkg/customfeeds.conf
       
-
-   ### Для OpenWrt 19.07 нужно установить вручную пакеты:
-        opkg install kcptun-client xray-core libcap-bin
  
 ### Установка passwall через Terminal
   
       opkg update
       opkg install luci-app-passwall
+
+ ### Для OpenWrt 19.07 нужно установить вручную пакеты:
+opkg install kcptun-client xray-core libcap-bin
       
 ### Все необходимые для работы пакеты:
 
@@ -68,7 +68,6 @@ microsocks
 resolveip 
 tcping 
 unzip
-luci-app-passwall
 v2ray-extra
 v2ray-geoip
 v2ray-geosite
