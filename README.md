@@ -1,4 +1,4 @@
-# ЛOPKG репозиторий для версий OpenWrt 19-21
+# ФOPKG репозиторий для версий OpenWrt 19-21
 Позволяет устанавливать такие пакеты: OpenClash, Passwall, ShadowSocksR+ Plus, Wegare STL, Tiny File Manager, Xderm Mini, v2rayA, Modeminfo.
 
 
